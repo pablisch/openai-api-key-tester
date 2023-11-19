@@ -1,22 +1,20 @@
-import { baseUrl } from './baseUrl.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  console.log('baseUrl is', baseUrl);
-
-  const button = document.querySelector('#button');
-  const form = document.querySelector('form');
+  const button = document.querySelector('button');
   const reportDiv = document.querySelector('.report');
+  button.disabled = false;
 
   // add event listener to the form
   button.addEventListener('click', async (e) => {
     e.preventDefault();
     // console.log('button clicked')
+    button.disabled = true;
     clearReport();
 
     for (let i = 1; i <= 3; i++) {
       try {
-        const res = await fetch(`${baseUrl}/openai/test/`, {
+        const res = await fetch('http://localhost:4000/openai/test/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -31,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Error occurred:', error);
       }
     }
+    button.disabled = false;
   });
 
   const displayReport = (data, i) => {
@@ -47,8 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
       newParagraph3.textContent = `All is good.`;
       newDiv.classList.add('ok');
     } else {
+      console.log('message in error:', data.message)
       newParagraph1.textContent = `API Key ${i} is not happy.`;
-      newParagraph2.textContent = `The server returned status ${data.message.headers.status}.`;
+      newParagraph2.textContent = `The server returned status: ${data.message.status}, code: ${data.message.code} and type: ${data.message.type}.`;
       newParagraph3.textContent = `The server returned an error message ${data.message.error.message}.`;
       newDiv.classList.add('error');
     }

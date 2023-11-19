@@ -51,8 +51,7 @@ async function generateResponse(req, res) {
     return res
       .status(500)
       .json({
-        message: error,
-        myMessage: 'An error occurred while trying to get an openai response.'
+        message: error
       });
   }
 }
