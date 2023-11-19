@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&family=Poppins:wght@400;700&display=swap');
+
+/* GLOBAL */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* set colour variables */
+
+:root {
+  --panelMidLight: #ddd;
+  --inputBorder: #b5b5b5;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins';
+  background: #eaeaea;
+  color: #fff;
+}
+
+.view-width {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.view-width-plus {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: inherit;
+}
+
+/* NAVBAR */
+
+nav {
+  background-color: #fff;
+  height: 70px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-brand h1 {
+  font-family: 'Hammersmith One';
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.nav-brand span, .about-page span {
+  color: #c929b9;
+}
+
+.nav-brand img {
+  max-width: 65px;
+  padding-right: 20px;
+  margin-left: 10px;
+}
+
+.nav-items ul {
+  list-style: none;
+  margin: 0 10px 0 0 ;
+  padding: 0;
+  display: flex;
+}
+
+.nav-items ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 0 0 0 20px;
+}
+
+.nav-items .inactive {
+  color: #a2b579;
+  pointer-events: none;
+  cursor: inherit;
+}
+
+
+/* FORM BUTTON */
+
+button {
+  margin-top: 30px;
+  background: #bbb;
+  color: #333;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  border: 0;
+  box-shadow: 2px 3px 5px #111;
+  padding: 5px 15px;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  top: 0;
+}
+
+button:hover {
+  background: #bbfa62;
+}
+
+button:active {
+  border-bottom-width: 2px;
+  top: 3px;
+}
+
+.report {
+  margin-top: 30px;
+}
+
+.report div {
+  margin-top: 20px;
+  width: 100%;
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 10px;
+  /* background-color: #fafafa; */
+}
+
+.report p {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.report .ok {
+  background-color: #dcffaa;
+}
+
+.report .error {
+  background-color: #fda5a5;
+}
