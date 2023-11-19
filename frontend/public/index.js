@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     // console.log('button clicked')
     button.disabled = true;
+    button.textContent = 'Contacting OpenAI...'
     clearReport();
 
     for (let i = 1; i <= 3; i++) {
@@ -29,7 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Error occurred:', error);
       }
     }
-    button.disabled = false;
+    button.textContent = 'Validating response...'
+    setTimeout(() => {
+      button.textContent = 'Test API keys'
+      button.disabled = false;
+    }, 2000)
   });
 
   const displayReport = (data, i) => {
