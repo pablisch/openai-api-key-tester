@@ -1,6 +1,6 @@
 const express = require('express')
 const generateResponse = require('./controllers/openaiController')
-const PORT = process.env.PORT || 4000
+const port = process.env.PORT || 4000
 const cors = require('cors')
 const rateLimit = require('express-rate-limit')
 
@@ -24,4 +24,4 @@ app.use(cors())
 // routes folder routes
 app.use('/openai', openaiRoutes)
 
-app.listen(process.env.PORT, () => console.log('Server listening on port', process.env.PORT)); 
+app.listen(port, () => console.log(`Server listening on port ${port}`)); 
